@@ -1,3 +1,3 @@
 # Winter
-Winter Engine is an engine made in C ++ and OpenGL <br>
-I've always wanted to make my nicknamed engine and this is it
+Winter 엔진은 C++과 OpenGL로 만들어진 게임 엔진입니다. <br>
+항상 제 이름을 딴 게임 엔진을 만들고 싶어 했고 그것이 바로 이 엔진입니다.
