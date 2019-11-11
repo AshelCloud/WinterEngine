@@ -3,6 +3,8 @@
 #include<vector>
 #include<string>
 
+#include"include/GLFW/glfw3.h"
+
 /*
 
 LOG 클래스는 전역적으로 호출가능한 LOG출력 클래스입니다.
@@ -28,8 +30,11 @@ private:
 	static unsigned int filter;
 
 public:
-	static void Message(const std::string& message, const LogType type = LogType::LOG_DEFAULT);
+	static void Message(const std::string& _message, const LogType _type = LogType::LOG_DEFAULT);
+	static void Message(const std::string& _message, const GLubyte* _glMessage, const LogType _type = LogType::LOG_DEFAULT);
+	static void SetFilter(unsigned int _filter);
 
 private:
-	static void PrintMessage(const std::string& message, const LogType type);
+	static void PrintMessage(const std::string& _message, const GLubyte* _glMessage, const LogType _type);
+	static bool IsFiltered();
 };
