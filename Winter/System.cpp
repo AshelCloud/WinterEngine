@@ -1,6 +1,6 @@
-#include "System.h"
+#include "System.hpp"
 
-#include"Log.h"
+#include"Log.hpp"
 #include<iostream>
 
 int framebufferWidth, framebufferHeight;

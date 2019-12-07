@@ -128,8 +128,8 @@
     <ClCompile Include="Winter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Log.h" />
-    <ClInclude Include="System.h" />
+    <ClInclude Include="Log.hpp" />
+    <ClInclude Include="System.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
