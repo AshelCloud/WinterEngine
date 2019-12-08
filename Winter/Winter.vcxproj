@@ -124,11 +124,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="Winter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Log.hpp" />
+    <ClInclude Include="Program.hpp" />
+    <ClInclude Include="Shader.hpp" />
     <ClInclude Include="System.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

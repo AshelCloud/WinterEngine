@@ -63,8 +63,6 @@ bool Log::IsFiltered()
 	{
 		return true;
 	}
-	else
-	{
-		return false;
-	}
+
+	return false;
 }

@@ -7,9 +7,8 @@
 
 /*
 
-LOG 클래스는 전역적으로 호출가능한 LOG출력 클래스입니다.
-LogType에 따라 Entry에 LOG들이 저장되며 Filter를 통해 LOG들을 필터링할 수 있습니다.
-
+	LOG 클래스는 전역적으로 호출가능한 LOG출력 클래스입니다.
+	LogType에 따라 Entry에 LOG들이 저장되며 Filter를 통해 LOG들을 필터링할 수 있습니다.
 */
 
 

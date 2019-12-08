@@ -1,6 +1,8 @@
 #include "System.hpp"
 
 #include"Log.hpp"
+#include"Shader.hpp"
+
 #include<iostream>
 
 int framebufferWidth, framebufferHeight;
@@ -9,73 +11,19 @@ GLuint triangleShaderProgramID;
 GLuint trianglePositionVertexBufferObjectID, triangleColorVertexBufferObjectID;
 
 bool initShaderProgram() {
-
-	//#3
-	const GLchar* vertexShaderSource =
-		"#version 330 core\n"
-		"in vec3 positionAttribute;"
-		"in vec3 colorAttribute;"
-		"out vec3 passColorAttribute;"
-		"void main()"
-		"{"
-		"gl_Position = vec4(positionAttribute, 1.0);"
-		"passColorAttribute = colorAttribute;"
-		"}";
-
-
-	//#4
-	const GLchar* fragmentShaderSource =
-		"#version 330 core\n"
-		"in vec3 passColorAttribute;"
-		"out vec4 fragmentColor;"
-		"void main()"
-		"{"
-		"fragmentColor = vec4(passColorAttribute, 1.0);"
-		"}";
-
-
-
-	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glCompileShader(vertexShader);
+	
+	Shader* vertexShader = new Shader("Shaders/Triangle.vs", GL_VERTEX_SHADER);
+	Shader* fragmentShader = new Shader("Shaders/Triangle.fs", GL_FRAGMENT_SHADER);
 
 	GLint result;
 	GLchar errorLog[512];
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &result);
-	if (!result)
-	{
-		glGetShaderInfoLog(vertexShader, 512, NULL, errorLog);
-		Log::Message("vertex shader 컴파일 실패", LogType::LOG_ERROR);
-		glDeleteShader(vertexShader);
-		return false;
-	}
-
-
-	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(fragmentShader);
-
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &result);
-	if (!result)
-	{
-		glGetShaderInfoLog(fragmentShader, 512, NULL, errorLog);
-		Log::Message("fragment shader 컴파일 실패", LogType::LOG_ERROR);
-
-		return false;
-	}
-
 	//#5
 	triangleShaderProgramID = glCreateProgram();
 
-	glAttachShader(triangleShaderProgramID, vertexShader);
-	glAttachShader(triangleShaderProgramID, fragmentShader);
+	glAttachShader(triangleShaderProgramID, vertexShader->GetShaderID());
+	glAttachShader(triangleShaderProgramID, fragmentShader->GetShaderID());
 
 	glLinkProgram(triangleShaderProgramID);
-
-
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-
 
 	glGetProgramiv(triangleShaderProgramID, GL_LINK_STATUS, &result);
 	if (!result) {

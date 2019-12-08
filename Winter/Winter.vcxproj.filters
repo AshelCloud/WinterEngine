@@ -24,12 +24,24 @@
     <ClCompile Include="Log.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Log.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Program.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
